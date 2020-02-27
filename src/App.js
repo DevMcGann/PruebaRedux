@@ -1,24 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
+import React,{useState, useEffect} from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import {getDrinks} from './redux/actions/DrinkActions'
+
 import './App.css';
 
 function App() {
+
+  const [search, setSearch] = useState("");
+
+  const dispatch = useDispatch();
+  const search_Drinks = (searchParameter) => dispatch(  getDrinks(searchParameter) );
+
+  useEffect(()=>{
+
+      if (search.length >= 3 ){
+       let query = search;
+       const data = search_Drinks(query) 
+      }
+
+  },[search])
+
+  
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <input type="text" placeholder="Buscar" value={search} onChange={e => setSearch(e.target.value)}  />
     </div>
   );
 }
