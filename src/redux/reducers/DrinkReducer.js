@@ -1,4 +1,4 @@
-import {FETCHING_DRINKS, FETCHING_DRINKS_SUCCESS, FETCHING_DRINKS_ERROR} from '../actions/DrinkActions.js'
+import {FETCHING_DRINKS, FETCHING_DRINKS_SUCCESS, FETCHING_DRINKS_ERROR,CLEAN_DRINKS} from '../actions/DrinkActions.js'
 
 const initialState = {
     drinks:[],
@@ -24,7 +24,12 @@ const  DrinkReducer = (state=initialState, action) => {
                 loading:false,
                 error:true
             }
-        
+        case CLEAN_DRINKS:
+            return {
+                drinks:[],
+                loading:false,
+                error:false
+            }
     
         default:
             return state

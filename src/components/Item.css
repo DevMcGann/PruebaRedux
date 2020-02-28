@@ -1,0 +1,25 @@
+.item{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    
+    width: 30%;
+    background-color:gray;
+    border-radius: 50px;
+    color:black;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    padding:20px
+}
+
+.imagen{
+    max-width: 50%;
+    max-height: 50%;
+    margin-right: 25px;
+}
+.imagen img {
+    height: auto;
+    width: 100%;
+    border-radius: 50%;
+}
