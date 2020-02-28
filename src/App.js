@@ -8,7 +8,7 @@ import './App.css';
 function App() {
 
   const [search, setSearch] = useState("");
-  const [fetched, setFetched] = useState([])
+  
   
   const dispatch = useDispatch();
   const search_Drinks = (searchParameter) => dispatch(  getDrinks(searchParameter) );
@@ -19,8 +19,7 @@ function App() {
       if (search.length >= 3 ){
        let query = search;
        search_Drinks(query)
-       console.log('SELECTOR', selector)
-       setFetched(selector.drinks)
+       
       }
 
   },[search])
@@ -31,7 +30,7 @@ function App() {
     <div className="App">
       <input type="text" placeholder="Buscar" value={search} onChange={e => setSearch(e.target.value)}  />
       <ul>
-        {!fetched ? null : fetched.map((drink) =>
+        {!selector.drinks ? null : selector.drinks.map((drink) =>
         <li key={drink.idDrink}>
           <p>{drink.strDrink}</p>
         </li>
