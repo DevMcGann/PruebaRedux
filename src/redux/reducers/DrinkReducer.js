@@ -6,7 +6,7 @@ const initialState = {
     error:false
 }
 
-export default function (state=initialState, action){
+const  DrinkReducer = (state=initialState, action) => {
     switch (action.type) {
         case FETCHING_DRINKS:
             return {
@@ -31,3 +31,5 @@ export default function (state=initialState, action){
     }
 
 }
+
+export default DrinkReducer;
